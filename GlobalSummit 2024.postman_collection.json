@@ -1,0 +1,1208 @@
+{
+	"info": {
+		"_postman_id": "bdd92b84-bd5c-4c64-aca7-446827d015ce",
+		"name": "GlobalSummit 2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "207566",
+		"_collection_link": "https://orange-robot-807708.postman.co/workspace/FHIRSearch~113b1f89-8b72-4b31-a0a2-a8cac3616976/collection/207566-bdd92b84-bd5c-4c64-aca7-446827d015ce?action=share&source=collection_link&creator=207566"
+	},
+	"item": [
+		{
+			"name": "Metadata",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Condition?patient={{patientId}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Condition"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{patientId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conditions for Patient",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Condition?patient={{patientId}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Condition"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{patientId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conditions for Patient Active",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Condition?patient={{patientId}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Condition"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{patientId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conditions for Patient Resolved",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Condition?patient={{patientid}}&clinical-status=http://terminology.hl7.org/CodeSystem/condition-clinical|resolved",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Condition"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{patientid}}"
+						},
+						{
+							"key": "clinical-status",
+							"value": "http://terminology.hl7.org/CodeSystem/condition-clinical|resolved"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conditions for Patient with Asthma",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_has:Condition:patient:code=http://snomed.info/sct|195967001",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_has:Condition:patient:code",
+							"value": "http://snomed.info/sct|195967001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medication Requests for Patient",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/MedicationRequest?subject={{ptmedid}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"MedicationRequest"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "{{ptmedid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active Medication Requests for Patient",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/MedicationRequest?subject={{ptmedid}}&status=active",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"MedicationRequest"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "{{ptmedid}}"
+						},
+						{
+							"key": "status",
+							"value": "active"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medication Administration for Patient",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/MedicationAdministration?subject={{ptmedid}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"MedicationAdministration"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "{{ptmedid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medication Administration completed for Patient",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/MedicationAdministration?subject={{ptmedid}}&status=completed",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"MedicationAdministration"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "{{ptmedid}}"
+						},
+						{
+							"key": "status",
+							"value": "completed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medication Administration only for Patient",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/MedicationAdministration?_elements=medicationCodeableConcept&subject={{ptmedid}}&status=completed",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"MedicationAdministration"
+					],
+					"query": [
+						{
+							"key": "_elements",
+							"value": "medicationCodeableConcept"
+						},
+						{
+							"key": "subject",
+							"value": "{{ptmedid}}"
+						},
+						{
+							"key": "status",
+							"value": "completed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Diagnostic Report By Code",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/DiagnosticReport?patient={{ptdxid}}&code={{dxcode}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"DiagnosticReport"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{ptdxid}}"
+						},
+						{
+							"key": "code",
+							"value": "{{dxcode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PractitionerSearchByName",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Practitioner?family={{practfamily}}&given={{practgiven}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Practitioner"
+					],
+					"query": [
+						{
+							"key": "family",
+							"value": "{{practfamily}}"
+						},
+						{
+							"key": "given",
+							"value": "{{practgiven}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProcedureByDateRange",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Procedure?patient={{patientid}}&date=ge{{procedStart}}&date=le{{procedEnd}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Procedure"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{patientid}}"
+						},
+						{
+							"key": "date",
+							"value": "ge{{procedStart}}"
+						},
+						{
+							"key": "date",
+							"value": "le{{procedEnd}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ImmunizationPtVaccineCode",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Immunization?patient={{patientid}}&vaccine-code={{vaccineCode}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Immunization"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{patientid}}"
+						},
+						{
+							"key": "vaccine-code",
+							"value": "{{vaccineCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ImmunizationVaccineCode",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Immunization?vaccine-code={{vaccineCode}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Immunization"
+					],
+					"query": [
+						{
+							"key": "vaccine-code",
+							"value": "{{vaccineCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ImmunizationVaccineCodePatientCount",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_has:Immunization:patient:vaccine-code={{vaccineCode}}&_summary=count",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_has:Immunization:patient:vaccine-code",
+							"value": "{{vaccineCode}}"
+						},
+						{
+							"key": "_summary",
+							"value": "count"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientContainsQuery",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?given:contains=St",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "given:contains",
+							"value": "St"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EncounterLocationAmbulatory",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Encounter?class=AMB",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Encounter"
+					],
+					"query": [
+						{
+							"key": "class",
+							"value": "AMB"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EncounterLocationWellChildVisits",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Encounter?class=AMB&type=http://snomed.info/sct|410620009",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Encounter"
+					],
+					"query": [
+						{
+							"key": "class",
+							"value": "AMB"
+						},
+						{
+							"key": "type",
+							"value": "http://snomed.info/sct|410620009"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObserverationsForPatient",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Observation?code=http://loinc.org|55284-4",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Observation"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "http://loinc.org|55284-4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObserverationsByValueComponent",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Observation?component-code=http://loinc.org|8480-6&component-value-quantity=gt140|http://unitsofmeasure.org|mm[Hg]",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Observation"
+					],
+					"query": [
+						{
+							"key": "component-code",
+							"value": "http://loinc.org|8480-6"
+						},
+						{
+							"key": "component-value-quantity",
+							"value": "gt140|http://unitsofmeasure.org|mm[Hg]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatchforProcedure",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json-patch+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\"op\": \"add\",\n    \"path\": \"/performer\",\n    \"value\": []},\n    {\"op\": \"add\",\n    \"path\": \"/performer/0\",\n    \"value\":\n    {\n        \"actor\":\"Practitioner/7\"\n    }}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base}}/Procedure/805",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Procedure",
+						"805"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Procedure805",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json-patch+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\"op\": \"add\",\n    \"path\": \"/performer\",\n    \"value\": []},\n    {\"op\": \"add\",\n    \"path\": \"/performer/0\",\n    \"value\":\n    {\n        \"actor\":\"Practitioner/7\"\n    }}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base}}/Procedure/805",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Procedure",
+						"805"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProceduresPerfomedbyPractitioner",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Procedure?performer=Practitioner/{{pracititionerid}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Procedure"
+					],
+					"query": [
+						{
+							"key": "performer",
+							"value": "Practitioner/{{pracititionerid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EncounterIncludePractitioner",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Encounter?_id=6&_include=Encounter:practitioner",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Encounter"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "6"
+						},
+						{
+							"key": "_include",
+							"value": "Encounter:practitioner"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Observations on AsthmaticNotVitalSigns",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Observation?patient={{asthmaid}}&category=http://terminology.hl7.org/CodeSystem/observation-category|survey",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Observation"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{asthmaid}}"
+						},
+						{
+							"key": "category",
+							"value": "http://terminology.hl7.org/CodeSystem/observation-category|survey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientRevincludeObservations",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_id=1&_revinclude=Observation:subject",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "1"
+						},
+						{
+							"key": "_revinclude",
+							"value": "Observation:subject"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientRevincludeAllergies",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_id=1&_revinclude=Observation:subject",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "1"
+						},
+						{
+							"key": "_revinclude",
+							"value": "Observation:subject"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientAllergies",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_id=1&_revinclude=Observation:subject",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "1"
+						},
+						{
+							"key": "_revinclude",
+							"value": "Observation:subject"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
