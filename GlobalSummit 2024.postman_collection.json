@@ -66,17 +66,457 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Condition?patient={{patientId}}",
+					"raw": "{{base}}/Patient",
 					"host": [
 						"{{base}}"
 					],
 					"path": [
-						"Condition"
+						"Patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientCount",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_count=5",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
 					],
 					"query": [
 						{
-							"key": "patient",
-							"value": "{{patientId}}"
+							"key": "_count",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientCountSortByBirthdate",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_count=5&_sort=-birthdate&_elements=birthDate",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_count",
+							"value": "5"
+						},
+						{
+							"key": "_sort",
+							"value": "-birthdate"
+						},
+						{
+							"key": "_elements",
+							"value": "birthDate"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientCountSortByName",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_count=5&_sort=-name&_elements=name",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_count",
+							"value": "5"
+						},
+						{
+							"key": "_sort",
+							"value": "-name"
+						},
+						{
+							"key": "_elements",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientCountSortByFamilyName",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_count=5&_sort=-family&_elements=name",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_count",
+							"value": "5"
+						},
+						{
+							"key": "_sort",
+							"value": "-family"
+						},
+						{
+							"key": "_elements",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BasicChainingRequest",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/DiagnosticReport?subject:Patient.name=Larson",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"DiagnosticReport"
+					],
+					"query": [
+						{
+							"key": "subject:Patient.name",
+							"value": "Larson"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReverseChainingQuery",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_has:Immunization:patient:vaccine-code={{vaccineCode}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_has:Immunization:patient:vaccine-code",
+							"value": "{{vaccineCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReverseChainingQuery2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_has:Condition:patient:code=http://snomed.info/sct|195967001",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_has:Condition:patient:code",
+							"value": "http://snomed.info/sct|195967001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PractitionerSearchByName",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Practitioner?name=Dr",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Practitioner"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Dr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PractitionerSearchByFirstName",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Practitioner?given=Arlena",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Practitioner"
+					],
+					"query": [
+						{
+							"key": "given",
+							"value": "Arlena"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PractitionerSearchByLastName",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Practitioner?family=Breitenberg",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Practitioner"
+					],
+					"query": [
+						{
+							"key": "family",
+							"value": "Breitenberg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PractitionerSearchByFamilyandGivenName",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Practitioner?family={{practfamily}}&given={{practgiven}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Practitioner"
+					],
+					"query": [
+						{
+							"key": "family",
+							"value": "{{practfamily}}"
+						},
+						{
+							"key": "given",
+							"value": "{{practgiven}}"
 						}
 					]
 				}
@@ -104,7 +544,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Condition?patient={{patientId}}",
+					"raw": "{{base}}/Condition?patient={{patientid}}",
 					"host": [
 						"{{base}}"
 					],
@@ -114,7 +554,7 @@
 					"query": [
 						{
 							"key": "patient",
-							"value": "{{patientId}}"
+							"value": "{{patientid}}"
 						}
 					]
 				}
@@ -123,6 +563,48 @@
 		},
 		{
 			"name": "Conditions for Patient Active",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Condition?patient={{patientid}}&clinical-status=http://terminology.hl7.org/CodeSystem/condition-clinical|active",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Condition"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{patientid}}"
+						},
+						{
+							"key": "clinical-status",
+							"value": "http://terminology.hl7.org/CodeSystem/condition-clinical|active"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conditions for Patient Active No Token",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -202,7 +684,7 @@
 			"response": []
 		},
 		{
-			"name": "Patients with Asthma",
+			"name": "ImmunizationPtVaccineCode",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -222,17 +704,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Patient?_has:Condition:patient:code=http://snomed.info/sct|195967001",
+					"raw": "{{base}}/Immunization?patient={{patientid}}&vaccine-code={{vaccineCode}}",
 					"host": [
 						"{{base}}"
 					],
 					"path": [
-						"Patient"
+						"Immunization"
 					],
 					"query": [
 						{
-							"key": "_has:Condition:patient:code",
-							"value": "http://snomed.info/sct|195967001"
+							"key": "patient",
+							"value": "{{patientid}}"
+						},
+						{
+							"key": "vaccine-code",
+							"value": "{{vaccineCode}}"
 						}
 					]
 				}
@@ -240,7 +726,7 @@
 			"response": []
 		},
 		{
-			"name": "Other Conditions for Patient with Asthma",
+			"name": "ChatGPTImmunizationPtVaccineCode",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -260,17 +746,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Patient?_has:Condition:patient:code=http://snomed.info/sct|195967001",
+					"raw": "{{base}}/Immunization?patient={{patientid}}&vaccine-code={{vaccineCode}}",
 					"host": [
 						"{{base}}"
 					],
 					"path": [
-						"Patient"
+						"Immunization"
 					],
 					"query": [
 						{
-							"key": "_has:Condition:patient:code",
-							"value": "http://snomed.info/sct|195967001"
+							"key": "patient",
+							"value": "{{patientid}}"
+						},
+						{
+							"key": "vaccine-code",
+							"value": "{{vaccineCode}}"
 						}
 					]
 				}
@@ -316,48 +806,6 @@
 			"response": []
 		},
 		{
-			"name": "Medication Requests for Patient Status Stopped",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/MedicationRequest?subject={{ptmedid}}&status:not=stopped",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"MedicationRequest"
-					],
-					"query": [
-						{
-							"key": "subject",
-							"value": "{{ptmedid}}"
-						},
-						{
-							"key": "status:not",
-							"value": "stopped"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Active Medication Requests for Patient",
 			"request": {
 				"auth": {
@@ -393,6 +841,48 @@
 						{
 							"key": "status",
 							"value": "active"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active or Stopped Medication Requests for Patien",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/MedicationRequest?subject={{ptmedid}}&status=active,stopped",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"MedicationRequest"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "{{ptmedid}}"
+						},
+						{
+							"key": "status",
+							"value": "active,stopped"
 						}
 					]
 				}
@@ -568,86 +1058,6 @@
 			"response": []
 		},
 		{
-			"name": "PractitionerSearchByName",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Practitioner?name={{practfamily}}",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Practitioner"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "{{practfamily}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PractitionerSearchByFamilyandGivenName",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Practitioner?family={{practfamily}}&given={{practgiven}}",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Practitioner"
-					],
-					"query": [
-						{
-							"key": "family",
-							"value": "{{practfamily}}"
-						},
-						{
-							"key": "given",
-							"value": "{{practgiven}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "ProcedureByDateRange",
 			"request": {
 				"auth": {
@@ -687,90 +1097,6 @@
 						{
 							"key": "date",
 							"value": "le{{procedEnd}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ImmunizationPtVaccineCode",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Immunization?patient={{patientid}}&vaccine-code={{vaccineCode}}",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Immunization"
-					],
-					"query": [
-						{
-							"key": "patient",
-							"value": "{{patientid}}"
-						},
-						{
-							"key": "vaccine-code",
-							"value": "{{vaccineCode}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ChatGPTImmunizationPtVaccineCode",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Immunization?patient={{patientid}}&vaccine-code={{vaccineCode}}",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Immunization"
-					],
-					"query": [
-						{
-							"key": "patient",
-							"value": "{{patientid}}"
-						},
-						{
-							"key": "vaccine-code",
-							"value": "{{vaccineCode}}"
 						}
 					]
 				}
@@ -1126,7 +1452,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Observation?code=http://loinc.org|55284-4",
+					"raw": "{{base}}/Observation?patient={{patientid}}",
 					"host": [
 						"{{base}}"
 					],
@@ -1135,8 +1461,8 @@
 					],
 					"query": [
 						{
-							"key": "code",
-							"value": "http://loinc.org|55284-4"
+							"key": "patient",
+							"value": "{{patientid}}"
 						}
 					]
 				}
@@ -1225,56 +1551,6 @@
 						{
 							"key": "_include",
 							"value": "Observation:subject"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ObserverationsByValueComponentIncludePatientIdentifier",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Observation?component-code=http://loinc.org|8480-6&component-value-quantity=gt140|http://unitsofmeasure.org|mm[Hg]&_include=Observation:subject&_elements=Observation.subject.identifier",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Observation"
-					],
-					"query": [
-						{
-							"key": "component-code",
-							"value": "http://loinc.org|8480-6"
-						},
-						{
-							"key": "component-value-quantity",
-							"value": "gt140|http://unitsofmeasure.org|mm[Hg]"
-						},
-						{
-							"key": "_include",
-							"value": "Observation:subject"
-						},
-						{
-							"key": "_elements",
-							"value": "Observation.subject.identifier"
 						}
 					]
 				}
@@ -1545,90 +1821,6 @@
 			"response": []
 		},
 		{
-			"name": "PatientRevincludeObservations",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Patient?_id=1&_revinclude=Observation:subject",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Patient"
-					],
-					"query": [
-						{
-							"key": "_id",
-							"value": "1"
-						},
-						{
-							"key": "_revinclude",
-							"value": "Observation:subject"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PatientRevincludeAllergies",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Patient?_id=1&_revinclude=Observation:subject",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Patient"
-					],
-					"query": [
-						{
-							"key": "_id",
-							"value": "1"
-						},
-						{
-							"key": "_revinclude",
-							"value": "Observation:subject"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "PatientAllergiesFood",
 			"request": {
 				"auth": {
@@ -1671,53 +1863,7 @@
 			"response": []
 		},
 		{
-			"name": "PatientAllergiesFoodIdentifier",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/AllergyIntolerance?category=food&_include=AllergyIntolerance:patient&_elements=patient.identifier",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"AllergyIntolerance"
-					],
-					"query": [
-						{
-							"key": "category",
-							"value": "food"
-						},
-						{
-							"key": "_include",
-							"value": "AllergyIntolerance:patient"
-						},
-						{
-							"key": "_elements",
-							"value": "patient.identifier"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PatientAllergies",
+			"name": "PatientRevincludeAllergyIntolerance",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -1752,77 +1898,6 @@
 						{
 							"key": "_revinclude",
 							"value": "Observation:subject"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Practitioner",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Practitioner",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Practitioner"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PatientPractitionerNoResults",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}Patient?_revinclude=PractitionerRole:patient&PractitionerRole:practitioner=Practitioner/7",
-					"host": [
-						"{{base}}Patient"
-					],
-					"query": [
-						{
-							"key": "_revinclude",
-							"value": "PractitionerRole:patient"
-						},
-						{
-							"key": "PractitionerRole:practitioner",
-							"value": "Practitioner/7"
 						}
 					]
 				}
