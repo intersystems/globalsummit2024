@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "bdd92b84-bd5c-4c64-aca7-446827d015ce",
-		"name": "GlobalSummit 2024",
+		"name": "GlobalSummit 2024R1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "207566",
 		"_collection_link": "https://orange-robot-807708.postman.co/workspace/FHIRSearch~113b1f89-8b72-4b31-a0a2-a8cac3616976/collection/207566-bdd92b84-bd5c-4c64-aca7-446827d015ce?action=share&source=collection_link&creator=207566"
@@ -72,7 +72,77 @@
 			"response": []
 		},
 		{
+			"name": "Patient Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "PatientCount",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?_count=5",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_count",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientCount Copy",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -130,7 +200,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/DiagnosticReport?subject:Patient.name=Larson",
+					"raw": "{{base}}/DiagnosticReport?subject:Patient.name=Paucek",
 					"host": [
 						"{{base}}"
 					],
@@ -140,7 +210,45 @@
 					"query": [
 						{
 							"key": "subject:Patient.name",
-							"value": "Larson"
+							"value": "Paucek"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientNamePaucet",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Patient?name=Paucek",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Paucek"
 						}
 					]
 				}
@@ -266,6 +374,52 @@
 			"response": []
 		},
 		{
+			"name": "ProcedureByDateRange",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/Procedure?patient={{patientid}}&date=ge{{procedStart}}&date=le{{procedEnd}}",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"Procedure"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "{{patientid}}"
+						},
+						{
+							"key": "date",
+							"value": "ge{{procedStart}}"
+						},
+						{
+							"key": "date",
+							"value": "le{{procedEnd}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Active or Stopped Medication Requests for Patien",
 			"request": {
 				"auth": {
@@ -343,52 +497,6 @@
 						{
 							"key": "code",
 							"value": "{{respiratorydxcode}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ProcedureByDateRange",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Procedure?patient={{patientid}}&date=ge{{procedStart}}&date=le{{procedEnd}}",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Procedure"
-					],
-					"query": [
-						{
-							"key": "patient",
-							"value": "{{patientid}}"
-						},
-						{
-							"key": "date",
-							"value": "ge{{procedStart}}"
-						},
-						{
-							"key": "date",
-							"value": "le{{procedEnd}}"
 						}
 					]
 				}
@@ -534,7 +642,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Encounter?class=EMER",
+					"raw": "{{base}}/Encounter?class=EMER&_summary=count",
 					"host": [
 						"{{base}}"
 					],
@@ -545,6 +653,10 @@
 						{
 							"key": "class",
 							"value": "EMER"
+						},
+						{
+							"key": "_summary",
+							"value": "count"
 						}
 					]
 				}
@@ -572,7 +684,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Encounter?class=AMB",
+					"raw": "{{base}}/Encounter?class=AMB&_summary=count",
 					"host": [
 						"{{base}}"
 					],
@@ -583,6 +695,10 @@
 						{
 							"key": "class",
 							"value": "AMB"
+						},
+						{
+							"key": "_summary",
+							"value": "count"
 						}
 					]
 				}
@@ -671,52 +787,6 @@
 						{
 							"key": "subject",
 							"value": "{{highbloodpressurept}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ObserverationsByValueComponentIncludePatient",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Observation?component-code=http://loinc.org|8480-6&component-value-quantity=gt140|http://unitsofmeasure.org|mm[Hg]&_include=Observation:subject",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Observation"
-					],
-					"query": [
-						{
-							"key": "component-code",
-							"value": "http://loinc.org|8480-6"
-						},
-						{
-							"key": "component-value-quantity",
-							"value": "gt140|http://unitsofmeasure.org|mm[Hg]"
-						},
-						{
-							"key": "_include",
-							"value": "Observation:subject"
 						}
 					]
 				}
@@ -828,12 +898,22 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Patient_id=1&_revinclude=Observation:subject",
+					"raw": "{{base}}/Patient?_id=1&_revinclude=Observation:subject",
 					"host": [
 						"{{base}}"
 					],
 					"path": [
-						"Patient_id=1&_revinclude=Observation:subject"
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "1"
+						},
+						{
+							"key": "_revinclude",
+							"value": "Observation:subject"
+						}
 					]
 				}
 			},
