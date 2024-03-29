@@ -29,7 +29,7 @@ In this guide, we will walk you through the step-by-step process of installing a
    - Open your terminal or command prompt.
    - Use the `git clone` command to clone the Bitbucket repository containing the Postman collection and environment files:
      ```
-     git clone https://bitbucketlb.iscinternal.com/scm/~pjamieso/fhirsearchglobalsummit.git
+     git clone https://https://github.com/intersystems/globalsummit2024.git
      ```
 
 2. **Import Postman Collection:**
