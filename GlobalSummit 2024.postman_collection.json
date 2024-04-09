@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "bdd92b84-bd5c-4c64-aca7-446827d015ce",
-		"name": "GlobalSummit 2024R1",
+		"_postman_id": "65758f00-36a9-43b9-b6ed-2f1863f66338",
+		"name": "GlobalSummit 2024",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "207566",
-		"_collection_link": "https://orange-robot-807708.postman.co/workspace/FHIRSearch~113b1f89-8b72-4b31-a0a2-a8cac3616976/collection/207566-bdd92b84-bd5c-4c64-aca7-446827d015ce?action=share&source=collection_link&creator=207566"
+		"_collection_link": "https://orange-robot-807708.postman.co/workspace/FHIRSearch~113b1f89-8b72-4b31-a0a2-a8cac3616976/collection/207566-65758f00-36a9-43b9-b6ed-2f1863f66338?action=share&source=collection_link&creator=207566"
 	},
 	"item": [
 		{
@@ -26,7 +26,13 @@
 					]
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Prefer",
+						"value": "handling=strict",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base}}/metadata",
 					"host": [
@@ -41,38 +47,6 @@
 		},
 		{
 			"name": "Patient",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Patient",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Patient"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Patient Copy",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -124,7 +98,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Patient?_count=5",
+					"raw": "{{base}}/Patient?_count=2",
 					"host": [
 						"{{base}}"
 					],
@@ -134,7 +108,7 @@
 					"query": [
 						{
 							"key": "_count",
-							"value": "5"
+							"value": "2"
 						}
 					]
 				}
@@ -142,7 +116,7 @@
 			"response": []
 		},
 		{
-			"name": "PatientCount Copy",
+			"name": "PatientSummaryCount",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -210,44 +184,6 @@
 					"query": [
 						{
 							"key": "subject:Patient.name",
-							"value": "Paucek"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PatientNamePaucet",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Patient?name=Paucek",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Patient"
-					],
-					"query": [
-						{
-							"key": "name",
 							"value": "Paucek"
 						}
 					]
@@ -539,44 +475,6 @@
 						{
 							"key": "_summary",
 							"value": "count"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PatientContainsQuery",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{password}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base}}/Patient?given:contains=St",
-					"host": [
-						"{{base}}"
-					],
-					"path": [
-						"Patient"
-					],
-					"query": [
-						{
-							"key": "given:contains",
-							"value": "St"
 						}
 					]
 				}
