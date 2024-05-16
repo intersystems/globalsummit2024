@@ -136,7 +136,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base}}/Patient?_count=5",
+					"raw": "{{base}}/Patient?_summary=count",
 					"host": [
 						"{{base}}"
 					],
@@ -145,8 +145,8 @@
 					],
 					"query": [
 						{
-							"key": "_count",
-							"value": "5"
+							"key": "_summary",
+							"value": "count"
 						}
 					]
 				}
