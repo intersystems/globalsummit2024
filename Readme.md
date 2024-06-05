@@ -39,7 +39,7 @@ In this guide, we will walk you through the step-by-step process of installing a
    - Click "Open" to import the collection into Postman.
 
 3. **Import Postman Environment:**
-   - After importing the collection, click on the gear icon in the top right corner to access the "Manage Environments" option.
+   - After importing the collection, click on "Environments" option.
    - Click on the "Import" button and select the `FHIR_Search_Global_Summit.postman_environment.json` file from the cloned repository directory.
    - Click "Open" to import the environment into Postman.
 
